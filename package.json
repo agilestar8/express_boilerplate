@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "cross-env NODE_ENV=development nodemon app.js",
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
     "prod": "cross-env NODE_ENV=prodction node app.js"
   },
   "repository": {
@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/agilestar8/express_boilerplate#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "cross-env": "^6.0.3",
     "express": "^4.17.1",
+    "method-override": "^3.0.0",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
     "sequelize": "^5.21.3"
