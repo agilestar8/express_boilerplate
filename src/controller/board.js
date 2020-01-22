@@ -1,19 +1,28 @@
-const readAll = (req,res,next)=>{
-    res.json( {"result" : "no data"} )
+const models = require('../model');
+
+//localhost:4000/board
+const readAll = async(req,res,next)=>{
+    const result = await models.Board.findAll()
+    res.json(result)
 }
 const readOne = (req,res,next)=>{
-    res.json( {"result" : "no data"} )
-}
-const writeOne = (req,res,next)=>{
-    // const name = req.body.name;
-    // const title = req.body.title;
-    // const content = req.body.content;
-    const {name: Name, title, content} = req.body;
-    console.log(Name);
-    
-    res.json( { "result" : `${req.body.name}님 만나서 반갑습니다 ` } )
-}
+    console.log(req.params.id)
+    res.json( { hi:'hi'} )
 
+}
+const writeOne = async (req,res,next) => {
+
+    // const {title, content} = req.body;
+    const title = req.body.title;
+    const content = req.body.content;
+
+    const createBoard = await models.Board.create({
+        title: title,
+        content: content
+    })
+    // models.Board.create({ title, content })
+    res.json( { "result" : createBoard } )
+}
 
 module.exports = {
     readAll, 
